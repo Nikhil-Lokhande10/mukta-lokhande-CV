@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mukta Lokhande — Apparel & Textile Designer Portfolio</title>
+  <meta name="description" content="Portfolio of Mukta Lokhande — Postgraduate apparel & textile design student at NID (AIR 1), designer, and illustrator exploring material, 3D, and wearable narrative." />
+  <meta name="theme-color" content="#0d0e11" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card-bg: rgba(22, 24, 31, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #e2a85c;
+      --accent-glow: rgba(226, 168, 92, 0.25);
+      --text: #f0f2f5;
+      --muted: #9aa0a6;
+      --badge-bg: rgba(226, 168, 92, 0.12);
+      --badge-border: rgba(226, 168, 92, 0.35);
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --radius: 14px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f7f8fa;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(0, 0, 0, 0.07);
+      --accent: #b86e24;
+      --accent-glow: rgba(184, 110, 36, 0.2);
+      --text: #17181c;
+      --muted: #636773;
+      --badge-bg: rgba(184, 110, 36, 0.1);
+      --badge-border: rgba(184, 110, 36, 0.3);
+      --tag-bg: rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(226, 168, 92, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(130, 95, 240, 0.04) 0%, transparent 35%);
+      background-attachment: fixed;
+    }
+
+    /* Ambient top highlight bar */
+    .top-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #e2a85c, #e78267, #b27cf4);
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    /* Header & Hero */
+    header {
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    .theme-toggle-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.3rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .title-sub {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .bio {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 780px;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-btn.primary {
+      background: var(--accent);
+      color: #0b0c10;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+
+    .contact-btn.primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .contact-btn.secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .contact-btn.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 3.5rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    /* Cards & Layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: rgba(226, 168, 92, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .role-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .org-name {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .time-badge {
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .bullet-list li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.45rem;
+      line-height: 1.5;
+    }
+
+    .bullet-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* Skills Cloud */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-tag.highlight {
+      border-color: var(--badge-border);
+      background: var(--badge-bg);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Quick Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+
+    /* Exposure / Visits */
+    .chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .chip {
+      background: var(--tag-bg);
+      border: 1px solid var(--card-border);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .theme-toggle-btn, .top-glow {
+        display: none;
+      }
+      .card {
+        border: 1px solid #ddd;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-glow"></div>
+
+  <main class="container">
+    <!-- Header -->
+    <header>
+      <button class="theme-toggle-btn" id="themeBtn" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span> <span id="themeText">Light</span>
+      </button>
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        ARRA Scholarship Holder 2025–26
+      </div>
+
+      <h1>Mukta Lokhande</h1>
+      <p class="title-sub">Apparel & Textile Design | Visual Narratives & 3D Garment Tech</p>
+
+      <p class="bio">
+        Postgraduate apparel and textile design student working through material exploration, graphic development, and construction. Practice combines draping, surface techniques, and visual narratives across conceptual and applied contexts, with experience spanning fashion startups, merchandise development, and digital 3D apparel.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:lokhandemukta@gmail.com" class="contact-btn primary" id="emailBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          lokhandemukta@gmail.com
+        </a>
+        <a href="tel:+919890928911" class="contact-btn secondary" id="phoneBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +91 9890928911
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-btn secondary" id="linkedinBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </a>
+      </div>
+    </header>
+
+    <!-- Highlights / Key Metrics -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-val">AIR 1</span>
+        <span class="stat-label">NID Apparel Design</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">8.9 CGPA</span>
+        <span class="stat-label">B.Des Fashion Design (SOFT)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">CLO3D & 3D</span>
+        <span class="stat-label">Digital Prototyping</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">Scholarship</span>
+        <span class="stat-label">ARRA Recipient 2025–26</span>
+      </div>
+    </div>
+
+    <!-- Key Projects -->
+    <h2 class="section-title">Key Projects</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Bhuj Textile Research & Menswear</h3>
+          <span class="time-badge">Ongoing</span>
+        </div>
+        <span class="org-name">Craft Documentation & Silhouette Study</span>
+        <ul class="bullet-list">
+          <li>Conducted field research on regional costumes and traditional textile practices</li>
+          <li>Engaged with local artisans via field interviews and on-site observation</li>
+          <li>Developing a contemporary menswear collection exploring balance, proportion, and unconventional silhouettes</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Rush and Reed of Sri Lanka</h3>
+          <span class="time-badge">Corsetry & Natural Dyes</span>
+        </div>
+        <span class="org-name">Cross-Cultural Collaboration</span>
+        <ul class="bullet-list">
+          <li>Collaborated with a Sinhalese artisan exploring vernacular materials</li>
+          <li>Engineered a handwoven grass corset using natural dyes (indigo, turmeric)</li>
+          <li>Explored alternative sustainable materials and cross-cultural craft practices</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Nickelodeon x SAZO (SpongeBob)</h3>
+          <span class="time-badge">Licensed Merchandise</span>
+        </div>
+        <span class="org-name">Official Collaboration</span>
+        <ul class="bullet-list">
+          <li>Created graphic prints and layouts for official licensed Nickelodeon merchandise</li>
+          <li>Translated pop-cultural imagery into wearable formats tailored for swimwear</li>
+          <li>Engineered color systems, visual storytelling, and engineered print placement</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Metaverse Odyssey: The Nexus Glitch</h3>
+          <span class="time-badge">Digital & 3D</span>
+        </div>
+        <span class="org-name">Generative Fashion Study</span>
+        <ul class="bullet-list">
+          <li>Explored digital distortion as a generative tool for physical garment design</li>
+          <li>Constructed garments utilizing structural mesh, layered print designs, and 3D elements</li>
+          <li>Focused on fluid forms, shifting silhouettes, and digital-physical crossover</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Designer & Illustrator</h3>
+          <span class="time-badge">July 2026 – June 2026</span>
+        </div>
+        <span class="org-name">Pepe Jeans London, Mumbai</span>
+        <ul class="bullet-list">
+          <li>Part of core design team driving AW27 graphics for menswear</li>
+          <li>Produced print packs, detailed production specs, and design executions</li>
+          <li>Drove collection development in a fast-paced corporate apparel environment</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Assistant Designer & Illustrator</h3>
+          <span class="time-badge">July 2024 – June 2025</span>
+        </div>
+        <span class="org-name">The Forbidden Fruit, Pune</span>
+        <ul class="bullet-list">
+          <li>Part of a 3-member agile team across the full pipeline: trims, garment design, and shoot coordination</li>
+          <li>Developed comprehensive tech packs, production specifications, and garment executions</li>
+          <li>Drove end-to-end collection development in a rapid startup ecosystem</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Graphic Design Intern</h3>
+          <span class="time-badge">Feb – April 2024</span>
+        </div>
+        <span class="org-name">SAZO, Mumbai</span>
+        <ul class="bullet-list">
+          <li>Developed prints and visual concepts for official Nickelodeon India collaboration</li>
+          <li>Designed swimwear lines with distinctive surface prints</li>
+          <li>Maintained brand alignment and cohesive visual language</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Fashion Design Intern</h3>
+          <span class="time-badge">Aug – Sept 2023</span>
+        </div>
+        <span class="org-name">Two Point Two Studio, New Delhi</span>
+        <ul class="bullet-list">
+          <li>Designed commercial silhouettes and surface graphics</li>
+          <li>Assisted in CLO3D-based T-shirt development and 3D digital sampling</li>
+          <li>Supported e-commerce photoshoot curation and visual assets</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Freelance Projects -->
+    <h2 class="section-title">Freelance Work</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">SUVI x Kings XI Punjab</h3>
+          <span class="time-badge">2026</span>
+        </div>
+        <span class="org-name">Fan Merchandise & Sportswear</span>
+        <ul class="bullet-list">
+          <li>Developed graphic-led designs for sports fan merchandise</li>
+          <li>Translated team identity into wearable formats through print & visual branding</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Studio SHRN, Delhi</h3>
+          <span class="time-badge">May 2024</span>
+        </div>
+        <span class="org-name">Streetwear Design Assistant</span>
+        <ul class="bullet-list">
+          <li>Assisted in developing streetwear line via technical drawings and design documentation</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Deluxe Thali Pop-up</h3>
+          <span class="time-badge">2025</span>
+        </div>
+        <span class="org-name">Graphic & Spatial Branding</span>
+        <ul class="bullet-list">
+          <li>Designed posters, spatial layout graphics, and visual communication for event branding</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <h2 class="section-title">Education</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Master of Design (Apparel Design)</h3>
+          <span class="time-badge">2025 – 2028 (Ongoing)</span>
+        </div>
+        <span class="org-name">National Institute of Design (NID)</span>
+        <p style="color: var(--muted); font-size: 0.9rem;">
+          <strong style="color: var(--accent);">All India Rank 1 (AIR 1)</strong> • Postgraduate study focusing on material exploration, construction, and emerging media in apparel.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="role-title">Bachelor of Design (Fashion Design)</h3>
+          <span class="time-badge">2020 – 2024</span>
+        </div>
+        <span class="org-name">School of Fashion Technology (SOFT), Pune</span>
+        <p style="color: var(--muted); font-size: 0.9rem;">
+          <strong style="color: var(--accent);">8.9 CGPA</strong> • Specialization in garment draping, pattern making, textile arts, and fashion illustration.
+        </p>
+      </div>
+    </div>
+
+    <!-- Softwares & Skills -->
+    <h2 class="section-title">Softwares & Technical Tooling</h2>
+    <div class="skills-grid">
+      <span class="skill-tag highlight">CLO3D</span>
+      <span class="skill-tag highlight">Adobe Illustrator</span>
+      <span class="skill-tag highlight">Adobe Photoshop</span>
+      <span class="skill-tag">Substance 3D</span>
+      <span class="skill-tag">Blender (Basic)</span>
+      <span class="skill-tag">Figma</span>
+      <span class="skill-tag">Procreate</span>
+      <span class="skill-tag">Pantone Connect</span>
+      <span class="skill-tag">CMF Development</span>
+      <span class="skill-tag">Tech Packs & Production Specs</span>
+      <span class="skill-tag">Draping & Pattern Making</span>
+      <span class="skill-tag">Natural Dyeing & Craft Documentation</span>
+    </div>
+
+    <!-- Exposure & Industry Visits -->
+    <h2 class="section-title">Industry Exposure & Visits</h2>
+    <div class="chips-wrap">
+      <span class="chip">🏛️ Bharat Tex 2025, 2024</span>
+      <span class="chip">🇫🇷 Première Vision, Paris 2023</span>
+      <span class="chip">✨ Lakmé Fashion Week, Mumbai 2023</span>
+      <span class="chip">🪡 Paramparik Karigar Exhibition, Mumbai</span>
+      <span class="chip">🏭 Cotton King Industrial Visit, Baramati</span>
+    </div>
+
+    <!-- Leadership & Interests -->
+    <h2 class="section-title">Leadership & Culture</h2>
+    <div class="card">
+      <div class="chips-wrap" style="gap: 0.6rem;">
+        <span class="chip">Student Representative – Baatein (Design Talks)</span>
+        <span class="chip">CORE Student Committee 2025 GSAC</span>
+        <span class="chip">Youth Festival Folk Dancer (SNDT Mumbai)</span>
+        <span class="chip">Green Fashion India Volunteer</span>
+        <span class="chip">Top Library Reader (2021–22)</span>
+        <span class="chip">Sarod Music Enthusiast</span>
+        <span class="chip">Mural Painting</span>
+        <span class="chip">Anime</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <span>© <span id="year"></span> Mukta Lokhande • Apparel & Textile Designer</span>
+      <span>Ultra-lightweight • Instant Load (< 20KB)</span>
+    </footer>
+  </main>
+
+  <script>
+    // Theme toggle with instant persistence
+    const btn = document.getElementById('themeBtn');
+    const icon = document.getElementById('themeIcon');
+    const text = document.getElementById('themeText');
+    
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.removeAttribute('data-theme');
+        icon.textContent = '☀️';
+        text.textContent = 'Light';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        icon.textContent = '🌙';
+        text.textContent = 'Dark';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      setTheme(false);
+    }
+
+    btn.addEventListener('click', () => {
+      const isCurrentlyDark = !document.documentElement.hasAttribute('data-theme');
+      setTheme(!isCurrentlyDark);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
